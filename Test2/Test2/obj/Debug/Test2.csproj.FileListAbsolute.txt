@@ -13,3 +13,18 @@ c:\users\vas\documents\visual studio 2015\Projects\Test2\Test2\bin\Debug\EntityF
 c:\users\vas\documents\visual studio 2015\Projects\Test2\Test2\bin\Debug\EntityFramework.SqlServer.dll
 c:\users\vas\documents\visual studio 2015\Projects\Test2\Test2\bin\Debug\EntityFramework.xml
 c:\users\vas\documents\visual studio 2015\Projects\Test2\Test2\bin\Debug\EntityFramework.SqlServer.xml
+D:\DB\DB\Test2\Test2\bin\Debug\Test2.exe.config
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.exe
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.pdb
+D:\DB\DB\Test2\Test2\bin\Debug\TeamBuilding.mdf
+D:\DB\DB\Test2\Test2\bin\Debug\TeamBuilding_log.ldf
+D:\DB\DB\Test2\Test2\bin\Debug\Test2.exe
+D:\DB\DB\Test2\Test2\bin\Debug\Test2.pdb
+D:\DB\DB\Test2\Test2\bin\Debug\EntityFramework.dll
+D:\DB\DB\Test2\Test2\bin\Debug\EntityFramework.SqlServer.dll
+D:\DB\DB\Test2\Test2\bin\Debug\EntityFramework.xml
+D:\DB\DB\Test2\Test2\bin\Debug\EntityFramework.SqlServer.xml
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.csprojResolveAssemblyReference.cache
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.Form1.resources
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.Properties.Resources.resources
+D:\DB\DB\Test2\Test2\obj\Debug\Test2.csproj.GenerateResource.Cache
