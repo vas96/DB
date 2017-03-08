@@ -1,7 +1,14 @@
-/TeamBuilding/packages
+﻿/TeamBuilding/packages
 /TeamBuilding/TeamBuilding/*.cs
 /TeamBuilding/TeamBuilding/*.tt
 /TeamBuilding/TeamBuilding/*.edmx
 /TeamBuilding/TeamBuilding/*.diagram
 /TeamBuilding/TeamBuilding/obj
 /TeamBuilding/.vs
+/Фінал/TeamBuilding/TeamBuilding/obj
+/Фінал/TeamBuilding/TeamBuilding/*.cs
+/Фінал/TeamBuilding/TeamBuilding/*.tt
+/Фінал/TeamBuilding/TeamBuilding/*.edmx
+/Фінал/TeamBuilding/TeamBuilding/*.diagram
+/Фінал/TeamBuilding/packages
+/Фінал/TeamBuilding/.vs
