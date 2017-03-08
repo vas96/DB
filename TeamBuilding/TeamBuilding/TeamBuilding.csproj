@@ -60,15 +60,21 @@
     <Compile Include="Classes.cs">
       <DependentUpon>TeamBuilding.tt</DependentUpon>
     </Compile>
-    <Compile Include="Common\Form1.cs">
+    <Compile Include="Common\UserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Common\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Common\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Program.cs" />
     <Compile Include="Contacts.cs">
       <DependentUpon>TeamBuilding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CreateProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\CreateProject.Designer.cs">
+      <DependentUpon>CreateProject.cs</DependentUpon>
     </Compile>
     <Compile Include="LikedProjects.cs">
       <DependentUpon>TeamBuilding.tt</DependentUpon>
@@ -84,6 +90,12 @@
       <DependentUpon>TeamBuilding.tt</DependentUpon>
     </Compile>
     <Compile Include="Skills.cs">
+      <DependentUpon>TeamBuilding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TeamBuilding.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>TeamBuilding.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
@@ -107,6 +119,12 @@
     <Compile Include="Users.cs">
       <DependentUpon>TeamBuilding.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Common\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\CreateProject.resx">
+      <DependentUpon>CreateProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,6 +156,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TeamBuilding.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TeamBuilding.edmx</DependentUpon>
@@ -148,9 +169,6 @@
       <DependentUpon>TeamBuilding.edmx</DependentUpon>
       <LastGenOutput>TeamBuilding.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
