@@ -25,6 +25,10 @@ namespace TeamBuilding
             {
                 checkedListBox1.Items.Add(i.ClassName.ToString());
             }
+            foreach (var i in UserProfile.TB.Projects.ToList()[0].Skills)
+            {
+                checkedListBox2.Items.Add(i.SklName.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,6 +63,9 @@ namespace TeamBuilding
             Image Img = new Bitmap(openFileDialog1.FileName);
             Img.Save(@"..\..\Pictures\" + openFileDialog1.SafeFileName);
             ObservableCollection<PrjtClasses> Class=new ObservableCollection<PrjtClasses>(UserProfile.TB.PrjtClasses);
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+                if (checkedListBox2.GetItemChecked(i))
+                    New_Project.Skills.Add(UserProfile.TB.Skills.ToList()[i]);
             for (int i=0; i<checkedListBox1.Items.Count;i++)
                 if (checkedListBox1.GetItemChecked(i))
                 New_Project.PrjtClasses.Add(new PrjtClasses() { ClClassId = i,ClPrjtId = New_Project.PrjtId,
