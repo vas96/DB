@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TeamBuildingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PrjtClasses" Relationship="Self.FK_PrjtClasses_Classes" FromRole="Classes" ToRole="PrjtClasses" />
+    <NavigationProperty Name="Users" Relationship="Self.UserClasses" FromRole="Classes" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="CntId" />
+    </Key>
+    <Property Name="CntId" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VKId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PublicMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Contacts" FromRole="Contacts" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="LikedProject">
+    <Key>
+      <PropertyRef Name="LkdUserId" />
+    </Key>
+    <Property Name="LkdUserId" Type="Int32" Nullable="false" />
+    <Property Name="LkdPrjtId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_LikedProjects1" FromRole="LikedProjects" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="PrjtClass">
+    <Key>
+      <PropertyRef Name="ClPrjtId" />
+      <PropertyRef Name="ClClassId" />
+    </Key>
+    <Property Name="ClPrjtId" Type="Int32" Nullable="false" />
+    <Property Name="ClClassId" Type="Int32" Nullable="false" />
+    <Property Name="ClPeopleNeeded" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_PrjtClasses_Classes" FromRole="PrjtClasses" ToRole="Classes" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_PrjtClasses_Projects" FromRole="PrjtClasses" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="PrjtId" />
+    </Key>
+    <Property Name="PrjtId" Type="Int32" Nullable="false" />
+    <Property Name="PrjtName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrjtDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrjtImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PrjtCreatedBy" Type="Int32" />
+    <Property Name="PrjtCreated" Type="DateTime" Precision="0" />
+    <Property Name="PjrtLikeCounter" Type="Int32" />
+    <NavigationProperty Name="PrjtClasses" Relationship="Self.FK_PrjtClasses_Projects" FromRole="Projects" ToRole="PrjtClasses" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Projects_Users" FromRole="Projects" ToRole="Users" />
+    <NavigationProperty Name="Users" Relationship="Self.CreatedPrjts" FromRole="Projects" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.InProjects" FromRole="Projects" ToRole="Users" />
+    <NavigationProperty Name="Skills" Relationship="Self.PrjtSkills" FromRole="Projects" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="ReqUsrId" />
+    </Key>
+    <Property Name="ReqUsrId" Type="Int32" Nullable="false" />
+    <Property Name="ReqPrjtId" Type="Int32" Nullable="false" />
+    <Property Name="ReqStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Requests" FromRole="Requests" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SklId" />
+    </Key>
+    <Property Name="SklId" Type="Int32" Nullable="false" />
+    <Property Name="SklName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Projects" Relationship="Self.PrjtSkills" FromRole="Skills" ToRole="Projects" />
+    <NavigationProperty Name="Users" Relationship="Self.UsrSkills" FromRole="Skills" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UsrId" />
+    </Key>
+    <Property Name="UsrId" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PicturePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Registered" Type="DateTime" Precision="0" />
+    <Property Name="ContactId" Type="Int32" />
+    <Property Name="RequetId" Type="Int32" />
+    <Property Name="LikedPrjtId" Type="Int32" />
+    <NavigationProperty Name="Contact" Relationship="Self.FK_Users_Contacts" FromRole="Users" ToRole="Contacts" />
+    <NavigationProperty Name="LikedProject" Relationship="Self.FK_Users_LikedProjects1" FromRole="Users" ToRole="LikedProjects" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Users" FromRole="Users" ToRole="Projects" />
+    <NavigationProperty Name="Request" Relationship="Self.FK_Users_Requests" FromRole="Users" ToRole="Requests" />
+    <NavigationProperty Name="Projects1" Relationship="Self.CreatedPrjts" FromRole="Users" ToRole="Projects" />
+    <NavigationProperty Name="Projects2" Relationship="Self.InProjects" FromRole="Users" ToRole="Projects" />
+    <NavigationProperty Name="Classes" Relationship="Self.UserClasses" FromRole="Users" ToRole="Classes" />
+    <NavigationProperty Name="Skills" Relationship="Self.UsrSkills" FromRole="Users" ToRole="Skills" />
+  </EntityType>
+  <Association Name="FK_PrjtClasses_Classes">
+    <End Role="Classes" Type="Self.Class" Multiplicity="1" />
+    <End Role="PrjtClasses" Type="Self.PrjtClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classes">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="PrjtClasses">
+        <PropertyRef Name="ClClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Contacts">
+    <End Role="Contacts" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="CntId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_LikedProjects1">
+    <End Role="LikedProjects" Type="Self.LikedProject" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LikedProjects">
+        <PropertyRef Name="LkdUserId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="LikedPrjtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrjtClasses_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+    <End Role="PrjtClasses" Type="Self.PrjtClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="PrjtId" />
+      </Principal>
+      <Dependent Role="PrjtClasses">
+        <PropertyRef Name="ClPrjtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Projects_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UsrId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="PrjtCreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Requests">
+    <End Role="Requests" Type="Self.Request" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requests">
+        <PropertyRef Name="ReqUsrId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RequetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CreatedPrjts">
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <Association Name="InProjects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <Association Name="PrjtSkills">
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <End Role="Skills" Type="Self.Skill" Multiplicity="*" />
+  </Association>
+  <Association Name="UserClasses">
+    <End Role="Classes" Type="Self.Class" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <Association Name="UsrSkills">
+    <End Role="Skills" Type="Self.Skill" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="TeamBuildingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="LikedProjects" EntityType="Self.LikedProject" />
+    <EntitySet Name="PrjtClasses" EntityType="Self.PrjtClass" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_PrjtClasses_Classes" Association="Self.FK_PrjtClasses_Classes">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="PrjtClasses" EntitySet="PrjtClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Contacts" Association="Self.FK_Users_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_LikedProjects1" Association="Self.FK_Users_LikedProjects1">
+      <End Role="LikedProjects" EntitySet="LikedProjects" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrjtClasses_Projects" Association="Self.FK_PrjtClasses_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="PrjtClasses" EntitySet="PrjtClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Projects_Users" Association="Self.FK_Projects_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Requests" Association="Self.FK_Users_Requests">
+      <End Role="Requests" EntitySet="Requests" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="CreatedPrjts" Association="Self.CreatedPrjts">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="InProjects" Association="Self.InProjects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="PrjtSkills" Association="Self.PrjtSkills">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="UserClasses" Association="Self.UserClasses">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UsrSkills" Association="Self.UsrSkills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

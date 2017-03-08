@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c77547648c8d4f0884a7b95772818542" Name="Diagram1">
+        <EntityTypeShape EntityType="TeamBuildingModel.Class" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.Contact" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.LikedProject" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.PrjtClass" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.Project" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.Request" Width="1.5" PointX="3.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.Skill" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamBuildingModel.User" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="TeamBuildingModel.FK_PrjtClasses_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.FK_Users_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.FK_Users_LikedProjects1" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.FK_PrjtClasses_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.FK_Projects_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.FK_Users_Requests" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.CreatedPrjts" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.InProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.PrjtSkills" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.UserClasses" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamBuildingModel.UsrSkills" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

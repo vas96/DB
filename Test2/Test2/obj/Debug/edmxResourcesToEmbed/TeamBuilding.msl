@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TeamBuildingModelStoreContainer" CdmEntityContainer="TeamBuildingEntities">
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="TeamBuildingModel.Class">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="TeamBuildingModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="CntId" ColumnName="CntId" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="VKId" ColumnName="VKId" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+          <ScalarProperty Name="PublicMail" ColumnName="PublicMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LikedProjects">
+      <EntityTypeMapping TypeName="TeamBuildingModel.LikedProject">
+        <MappingFragment StoreEntitySet="LikedProjects">
+          <ScalarProperty Name="LkdUserId" ColumnName="LkdUserId" />
+          <ScalarProperty Name="LkdPrjtId" ColumnName="LkdPrjtId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrjtClasses">
+      <EntityTypeMapping TypeName="TeamBuildingModel.PrjtClass">
+        <MappingFragment StoreEntitySet="PrjtClasses">
+          <ScalarProperty Name="ClPrjtId" ColumnName="ClPrjtId" />
+          <ScalarProperty Name="ClClassId" ColumnName="ClClassId" />
+          <ScalarProperty Name="ClPeopleNeeded" ColumnName="ClPeopleNeeded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="TeamBuildingModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="PrjtId" ColumnName="PrjtId" />
+          <ScalarProperty Name="PrjtName" ColumnName="PrjtName" />
+          <ScalarProperty Name="PrjtDescription" ColumnName="PrjtDescription" />
+          <ScalarProperty Name="PrjtImagePath" ColumnName="PrjtImagePath" />
+          <ScalarProperty Name="PrjtCreatedBy" ColumnName="PrjtCreatedBy" />
+          <ScalarProperty Name="PrjtCreated" ColumnName="PrjtCreated" />
+          <ScalarProperty Name="PjrtLikeCounter" ColumnName="PjrtLikeCounter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="TeamBuildingModel.Request">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="ReqUsrId" ColumnName="ReqUsrId" />
+          <ScalarProperty Name="ReqPrjtId" ColumnName="ReqPrjtId" />
+          <ScalarProperty Name="ReqStatus" ColumnName="ReqStatus" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="TeamBuildingModel.Skill">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="SklId" ColumnName="SklId" />
+          <ScalarProperty Name="SklName" ColumnName="SklName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TeamBuildingModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TeamBuildingModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="RegMail" ColumnName="RegMail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+          <ScalarProperty Name="Registered" ColumnName="Registered" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="RequetId" ColumnName="RequetId" />
+          <ScalarProperty Name="LikedPrjtId" ColumnName="LikedPrjtId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CreatedPrjts" TypeName="TeamBuildingModel.CreatedPrjts" StoreEntitySet="CreatedPrjts">
+      <EndProperty Name="Projects">
+        <ScalarProperty Name="PrjtId" ColumnName="CrtProjectId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UsrId" ColumnName="CrtUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InProjects" TypeName="TeamBuildingModel.InProjects" StoreEntitySet="InProjects">
+      <EndProperty Name="Projects">
+        <ScalarProperty Name="PrjtId" ColumnName="InProjectId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UsrId" ColumnName="InUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrjtSkills" TypeName="TeamBuildingModel.PrjtSkills" StoreEntitySet="PrjtSkills">
+      <EndProperty Name="Projects">
+        <ScalarProperty Name="PrjtId" ColumnName="SkPrjtId" />
+      </EndProperty>
+      <EndProperty Name="Skills">
+        <ScalarProperty Name="SklId" ColumnName="SkSkillId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserClasses" TypeName="TeamBuildingModel.UserClasses" StoreEntitySet="UserClasses">
+      <EndProperty Name="Classes">
+        <ScalarProperty Name="ClassId" ColumnName="ClClassId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UsrId" ColumnName="ClUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsrSkills" TypeName="TeamBuildingModel.UsrSkills" StoreEntitySet="UsrSkills">
+      <EndProperty Name="Skills">
+        <ScalarProperty Name="SklId" ColumnName="SkSkillId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UsrId" ColumnName="SkUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
