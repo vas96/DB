@@ -1,0 +1,6 @@
+/TeamBuilding/packages
+/TeamBuilding/TeamBuilding/*.cs
+/TeamBuilding/TeamBuilding/*.tt
+/TeamBuilding/TeamBuilding/*.edmx
+/TeamBuilding/TeamBuilding/*.diagram
+/TeamBuilding/TeamBuilding/obj
